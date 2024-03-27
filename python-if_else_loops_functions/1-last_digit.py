@@ -9,5 +9,5 @@ if lastDigit > 5:
 elif lastDigit == 0:
   isGreatLess = "is 0"
 else:
-  isGreatLess = "is less than 6 and is not 0"
+  isGreatLess = "is less than 6 and not 0"
 print(f"Last digit of {number} is {lastDigit} and {isGreatLess}")
