@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-for i in range(97, 123):
-    if chr(i) != "q" and chr(i) != "e":
-        print(chr(i).format(), end='')
+for x in range(97, 123):
+    if x == 113 or x == 101:
+        continue
+    print('{0}'.format(chr(x)), end="")
