@@ -9,7 +9,3 @@ def list_arg(*argv):
         print("{} arguments:".format(no_arg))
     for i in range(no_arg):
         print("{}: {}".format(i+1, argv[i]))
-
-""" if __name__ == "__main__":
-    a = 10
-    b = 5 """
