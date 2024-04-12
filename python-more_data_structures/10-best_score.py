@@ -4,7 +4,7 @@ def best_score(a_dictionary):
     best_val = 0
     best_student = None
     for k, v in new_dic.items():
-        if v is None:
+        if v is None or new_dic is None:
             return None
         if v > best_val:
             best_val = v
