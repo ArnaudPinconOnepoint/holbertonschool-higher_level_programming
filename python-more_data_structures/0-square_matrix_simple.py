@@ -4,7 +4,6 @@ def square_matrix_simple(matrix=[]):
     for i in matrix:
         new_matrix.append(list(map(square_value, i)))
     return new_matrix
-        
 
 def square_value(x):
     return x * x
