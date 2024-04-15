@@ -10,9 +10,3 @@ def safe_print_list_integers(my_list=[], x=0):
     except IndexError:
         print()
         return nb
-    except ValueError:
-        print()
-        return nb
-    except TypeError:
-        print()
-        return nb
