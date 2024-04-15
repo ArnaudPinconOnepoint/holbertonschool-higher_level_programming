@@ -15,11 +15,13 @@ def roman_to_int(roman_string):
         # Check if the current char is not a roman numeral
         if rom_val is None:
             return 0
-        if last_rom_val == None or rom_val <= last_rom_val:
+        if last_rom_val is None or rom_val <= last_rom_val:
             res = res + rom_val
             last_rom_val = rom_val
-        # If the rom_val is greater than last_rom_val, we need to cancel the previous sum
-        # then add to the final result the subtraction of rom_val with last_rom_val.
+        # If the rom_val is greater than last_rom_val
+        # We need to cancel the previous sum
+        # then add to the final result the subtraction
+        # of rom_val with last_rom_val.
         elif rom_val > last_rom_val:
             res = res - 2*last_rom_val + rom_val
             last_rom_val = rom_val
