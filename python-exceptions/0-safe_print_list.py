@@ -4,7 +4,7 @@ def safe_print_list(my_list=[], x=0):
     nb = 0
     try:
         for i in range (0, x):
-            print(my_list[i])
+            print({}.format(my_list[i]), end="")
             nb +=1
         return nb
     except IndexError:
