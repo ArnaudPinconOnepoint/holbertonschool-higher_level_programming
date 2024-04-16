@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 def complex_delete(a_dictionary, value):
-    to_remove = []
+    new_dic = a_dictionary.copy()
     for i in a_dictionary.keys():
         if a_dictionary.get(i) == value:
-            to_remove.append(i)
-    for j in to_remove:
-        a_dictionary.pop(j)
+            new_dic.pop(i)
+    return new_dic
