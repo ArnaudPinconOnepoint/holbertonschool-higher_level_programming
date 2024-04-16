@@ -4,8 +4,9 @@ def safe_print_integer_err(value):
         print("{:d}".format(value), end='\n')
         return True
     except TypeError as e:
-        print("Exception:{}".format(e), end="")
+        print("Exception:", end="")
+        print("{}".format(e), end="")
         return False
-        
+
 
     
