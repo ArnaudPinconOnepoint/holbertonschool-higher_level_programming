@@ -17,5 +17,8 @@ def safe_function(fct, *args):
     except NameError as e:
         print('Exception: {}'.format(e), end="\n", file=sys.stderr)
         res = None
+    except IndexError as e:
+        print('Exception: {}'.format(e), end="\n", file=sys.stderr)
+        res = None
     finally:
         return res
