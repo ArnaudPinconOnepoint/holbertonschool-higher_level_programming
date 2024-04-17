@@ -16,8 +16,7 @@ class Square:
             self.__size = size
         except (TypeError, ValueError) as e:
             raise e
-    
-    
+
     def area(self):
         """Return area"""
         area = self.__size*self.__size
