@@ -14,4 +14,4 @@ def magic_calculation(a, b):
         finally:
             pass  # Ne fait rien dans le bloc finally
 
-    result  # Retourne la valeur de result à la fin de la boucle et du code
+    return result  # Retourne la valeur de result à la fin de la boucle et du code
