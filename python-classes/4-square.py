@@ -7,8 +7,12 @@ class Square:
     __size = 10
 
     def __init__(self, size=0):
-       size(self, size)
-        
+       self.__size = size
+    
+    def size(self):
+        """Getter size"""
+        return self.__size
+
     def size(self, value):
         """Setter size"""
         try:
@@ -24,6 +28,3 @@ class Square:
         """Return area"""
         area = self.__size*self.__size
         return area
-
-    def size(self):
-        return self.__size
