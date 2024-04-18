@@ -45,19 +45,19 @@ class Square:
 
     def area(self):
         """Return area"""
-        area = self.__size*self.__size
+        area = self.size*self.__size
         return area
 
     def my_print(self):
-        if (self.__size == 0):
+        if (self.size == 0):
             print()
         else:
-            for j in range (0, self.__position[1]):
+            for j in range (0, self.position[1]):
                 print()
-            print(' '*self.__position[0], end="")
+            print(' '*self.position[0], end="")
             for i in range(1, self.area()+1):
-                if (i % self.__size):
+                if (i % self.size):
                     print("#", end="")
                 else:
                     print("#", end="\n")
-                    print(' '*self.__position[0], end="")
+                    print(' '*self.position[0], end="")
