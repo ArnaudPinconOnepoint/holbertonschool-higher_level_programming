@@ -62,4 +62,5 @@ class Square:
                     print("#", end="")
                 else:
                     print("#", end="\n")
-                    print(' '*self.position[0], end="")
+                    if (j != self.position[1]):
+                        print(' '*self.position[0], end="")
