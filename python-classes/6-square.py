@@ -19,10 +19,8 @@ class Square:
         """Setter size"""
         try:
             if not isinstance(value, int):
-                print("size must be an integer")
                 raise TypeError("size must be an integer")
             if value < 0:
-                print("size must be >= 0")
                 raise ValueError("size must be >= 0")
             self.__size = value
         except (TypeError, ValueError) as e:
@@ -41,7 +39,7 @@ class Square:
                 raise TypeError("position must be a tuple of 2 positive integers")
             x, y = value
             if not isinstance(x, int) or not isinstance(y, int) or x < 0 or y < 0:
-                raise ValueError("position coordinates must be positive integers")
+                raise ValueError("position must be a tuple of 2 positive integers")
             else:
                 self.__position = value
         except (TypeError, ValueError) as e:
