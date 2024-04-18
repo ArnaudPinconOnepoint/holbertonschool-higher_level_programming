@@ -61,6 +61,8 @@ class Square:
                 if (i % self.size):
                     print("#", end="")
                 else:
-                    print("#", end="\n")
                     if (j != self.position[1]):
+                        print("#", end="\n")
                         print(' '*self.position[0], end="")
+                    else:
+                        print("#", end="")
