@@ -55,7 +55,7 @@ class Square:
             print()
         else:
             for j in range (0, self.position[1]):
-                print()*j
+                print()
             print(' '*self.position[0], end="")
             for i in range(1, self.area()+1):
                 if (i % self.size):
