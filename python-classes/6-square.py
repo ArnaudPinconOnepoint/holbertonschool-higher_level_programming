@@ -6,8 +6,8 @@ class Square:
     """This class is Square"""
 
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
+        self.size(size)
+        self.position(position)
 
     @property
     def size(self):
@@ -19,12 +19,15 @@ class Square:
         """Setter size"""
         try:
             if not isinstance(value, int):
+                print("size must be an integer")
                 raise TypeError("size must be an integer")
             if value < 0:
+                print("size must be >= 0")
                 raise ValueError("size must be >= 0")
             self.__size = value
         except (TypeError, ValueError) as e:
             raise e
+
     @property
     def position(self):
         """Getter position"""
@@ -42,12 +45,11 @@ class Square:
             else:
                 self.__position = value
         except (TypeError, ValueError) as e:
-            print(e)
             raise e
 
     def area(self):
         """Return area"""
-        area = self.size*self.__size
+        area = self.size*self.size
         return area
 
     def my_print(self):
