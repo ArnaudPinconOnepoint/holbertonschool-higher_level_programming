@@ -41,8 +41,8 @@ class Square:
                 raise ValueError("position coordinates must be positive integers")
             self.__position = value
         except (TypeError, ValueError) as e:
+            print(e)
             raise e
-            return False
 
     def area(self):
         """Return area"""
