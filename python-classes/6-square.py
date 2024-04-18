@@ -34,7 +34,6 @@ class Square:
     def position(self, value):
         """Setter position"""
         try:
-            print("Hey i just met you")
             if not isinstance(value, tuple) or len(value) != 2:
                 raise TypeError("position must be a tuple of 2 positive integers")
             x, y = value
@@ -43,6 +42,7 @@ class Square:
             self.__position = value
         except (TypeError, ValueError) as e:
             raise e
+            return False
 
     def area(self):
         """Return area"""
