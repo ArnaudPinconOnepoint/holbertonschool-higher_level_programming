@@ -36,7 +36,7 @@ class Square:
         try:
             #isTuple2 = isinstance(value, tuple) and len(value) == 2
             #isIntTuple = all(isinstance(elem, int) for elem in value)
-            if not type(value) is tuple:
+            if type(value) is not tuple:
                 raise TypeError("position must be a tuple of 2 positive integers")
             self.__position = value
         except (TypeError) as e:
