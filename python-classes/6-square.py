@@ -39,7 +39,8 @@ class Square:
             x, y = value
             if not isinstance(x, int) or not isinstance(y, int) or x < 0 or y < 0:
                 raise ValueError("position coordinates must be positive integers")
-            self.__position = value
+            else:
+                self.__position = value
         except (TypeError, ValueError) as e:
             print(e)
             raise e
@@ -52,6 +53,7 @@ class Square:
     def my_print(self):
         if (self.size == 0):
             print()
+        if (self.position )
         else:
             for j in range (0, self.position[1]):
                 print()
