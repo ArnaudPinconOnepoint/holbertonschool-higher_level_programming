@@ -18,7 +18,8 @@ class Square:
     def size(self, value):
         """Setter size"""
         try:
-            if not isinstance(value, int):
+            checkTuple = isinstance(value, tuple) and len(value) == 2
+            if checkTuple and all(isinstance(elem, int) for elem in value):
                 raise TypeError("size must be an integer")
             if value < 0:
                 raise ValueError("size must be >= 0")
