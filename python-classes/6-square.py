@@ -52,10 +52,10 @@ class Square:
         else:
             """ Add space for vertical """
             print('\n' * self.position[1], end="")
-            for i in range(1, self.area() + 1):
+            for i in range(0, self.size):
                 """ Add space for horizontal """
                 print(' ' * self.position[0], end="")
-                print("#", end="")
-                if i % self.size == 0:
-                    """ Move to the next line to draw the square """
-                    print()
+                for j in range(0, self.size):
+                    print("#", end="")
+                """ Move to the next line to draw the square """
+                print()
