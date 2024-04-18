@@ -18,15 +18,14 @@ class Square:
     def size(self, value):
         """Setter size"""
         try:
-            checkTuple = isinstance(value, tuple) and len(value) == 2
-            if checkTuple and all(isinstance(elem, int) for elem in value):
+            if not type(value) is tuple:
                 raise TypeError("size must be an integer")
             if value < 0:
                 raise ValueError("size must be >= 0")
             self.__size = value
         except (TypeError, ValueError) as e:
             raise e
-    
+
     @property
     def position(self):
         """Getter position"""
