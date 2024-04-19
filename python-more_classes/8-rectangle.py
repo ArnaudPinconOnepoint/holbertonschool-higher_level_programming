@@ -78,4 +78,3 @@ class Rectangle:
                 return rect_2
         except TypeError as e:
             raise e
-        
