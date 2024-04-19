@@ -4,10 +4,12 @@
 
 class Rectangle:
     """This class is Rectangle"""
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+        self.number_of_instances += 1
 
     @property
     def width(self):
@@ -60,4 +62,5 @@ class Rectangle:
             return rectangle_str
 
     def __del__(self):
+        self.number_of_instances -= 1
         print("Bye rectangle...")
