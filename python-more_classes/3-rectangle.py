@@ -46,7 +46,7 @@ class Rectangle:
         return self.width * 2 + self.height * 2
 
     def __repr__(self):
-        return self
+        return f"<{self.height}-{self.width}-{self.__class__.__name__} object>"
     
     def __str__(self):
         if self.height == 0 or self.width == 0:
