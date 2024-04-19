@@ -53,6 +53,6 @@ class Rectangle:
             return ""
         else:
             rectangle_str = ""
-            for _ in range(self.width):
-                rectangle_str += '#' * self.height + '\n'
+            for _ in range(self.height):
+                rectangle_str += '#' * self.width + '\n'
             return rectangle_str
