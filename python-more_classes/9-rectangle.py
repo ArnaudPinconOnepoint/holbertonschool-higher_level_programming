@@ -79,6 +79,8 @@ class Rectangle:
         except TypeError as e:
             raise e
 
-    def square(cls, **kwargs):
-        size = kwargs.get('size', 0)
-        return cls(size, size)
+    def square(cls, size=0):
+        cls.height = size
+        cls.width = size
+        return cls
+
