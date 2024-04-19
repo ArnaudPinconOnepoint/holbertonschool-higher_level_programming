@@ -80,4 +80,4 @@ class Rectangle:
             raise e
 
     def square(cls, size=0):
-        cls(size, size)
+        return cls(size, size)
