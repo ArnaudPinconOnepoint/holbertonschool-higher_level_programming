@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 This module's is documented
 """
