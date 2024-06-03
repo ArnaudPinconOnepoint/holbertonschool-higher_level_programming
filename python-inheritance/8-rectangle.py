@@ -5,10 +5,7 @@ This module contains class BaseGeometry.
 
 
 class Rectangle(BaseGeometry):
-    """
-    Rectangle class inheriting from BaseGeometry.
-    """
-
+    """Rectangle class inheriting from BaseGeometry."""
     def __init__(self, width, height):
         """
         Initialize the Rectangle with width and height.
