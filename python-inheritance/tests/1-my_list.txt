@@ -1,10 +1,53 @@
-"""
-This file contains test cases for the print_sorted method of MyList class.
-"""
+The ``MyList`` module
+======================
 
-from my_module import MyList
+Using ``MyList``
+-------------------
 
-# Test case: Sort a list of integers
-my_list = MyList([3, 1, 2])
-sorted_list = my_list.print_sorted()
-assert sorted_list == [1, 2, 3], "Sorting is incorrect"
+
+First import ``MyList`` and ``print_sorted`` from the ``1-my_list`` file:
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> ps = __import__('1-my_list').MyList.print_sorted
+
+Tests:
+
+    Test - check that sorting works
+    >>> ps([1, 4, 2, 3, 5])
+    [1, 2, 3, 4, 5]
+
+    Test - list contains non-integer values (string)
+    >>> ps(["haha", 2, 1])
+    Traceback (most recent call last):
+    ...
+    TypeError: '<' not supported between instances of 'int' and 'str'
+
+    Test - check instantiation
+    >>> isinstance(MyList(), MyList)
+    True
+
+    Test - check inherits from list
+    >>> issubclass(MyList, list)
+    True
+
+    Test - check __str__
+    >>> MyList().__str__()
+    '[]'
+
+    Test - check append()
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> print(my_list)
+    [1, 2]
+
+    Test - check ``print_sorted()`` with empty list
+    >>> ps([])
+    []
+
+    Test - check ``print_sorted()`` returns a new list
+    >>> my_list_a = [1, 3, 4, 2]
+    >>> my_list_b = ps(my_list_a)
+    [1, 2, 3, 4]
+    >>> id(my_list_a) == id(my_list_b)
+    False
