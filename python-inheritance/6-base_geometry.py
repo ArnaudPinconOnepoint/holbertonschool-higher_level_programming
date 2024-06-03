@@ -4,10 +4,7 @@ This module contains class BaseGeometry.
 """
 
 class BaseGeometry:
-    """
-    Base class for geometric shapes.
-    """
-    
+    """Base class for geometric shapes."""
     def area(self):
         """
         Calculate the area of the geometric shape.
