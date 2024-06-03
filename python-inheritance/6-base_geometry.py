@@ -3,8 +3,8 @@
 This module contains class BaseGeometry.
 """
 
+
 class BaseGeometry:
-    
     """Base class for geometric shapes."""
     def area(self):
         """
