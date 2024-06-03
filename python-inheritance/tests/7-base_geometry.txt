@@ -1,0 +1,39 @@
+The ``BaseGeometry`` module
+======================
+
+Using ``BaseGeometry``
+-------------------
+
+First import ``BaseGeometry`` from the ``base_geometry`` file:
+
+    >>> BaseGeometry = __import__('base_geometry').BaseGeometry
+
+Tests:
+
+    Test - check area method raises exception
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+    Test - integer_validator method with non-integer value
+    >>> bg.integer_validator("age", "twenty")
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    Test - integer_validator method with zero value
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+    Test - integer_validator method with negative value
+    >>> bg.integer_validator("age", -5)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+    Test - integer_validator method with valid integer
+    >>> bg.integer_validator("age", 10)
