@@ -4,9 +4,9 @@ The ``BaseGeometry`` module
 Using ``BaseGeometry``
 -------------------
 
-First import ``BaseGeometry`` from the ``base_geometry`` file:
+First import ``BaseGeometry`` from the ``7-base_geometry`` file:
 
-    >>> BaseGeometry = __import__('base_geometry').BaseGeometry
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Tests:
 
