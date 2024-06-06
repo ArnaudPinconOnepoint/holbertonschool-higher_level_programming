@@ -4,14 +4,16 @@ This script adds all arguments to a Python list,
 and then saves them to a file.
 """
 
+
 class Student:
+    """Student class"""
+
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-
     def to_json(self, attrs=None):
-        """Retrieves a filtered or full dictionary representation of a Student instance."""
+        """Retrieves a filtered/full dictionary repr of a Student instance."""
         if attrs is None:
             # Si attrs est None, retourne tous les attributs
             return self.__dict__
