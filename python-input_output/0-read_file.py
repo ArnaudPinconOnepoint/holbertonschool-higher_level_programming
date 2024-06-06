@@ -7,5 +7,4 @@ This module contains class BaseGeometry.
 def read_file(filename=""):
     """ Read File """
     with open(filename, encoding="utf-8") as f:
-        read_data=f.read()
-    return read_data
+        print(f.read())
