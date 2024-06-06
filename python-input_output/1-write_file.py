@@ -6,7 +6,6 @@ This module contains class BaseGeometry.
 
 def write_file(filename="", text=""):
     """ Write File """
-    with open(filename, encoding="utf-8") as f:
+    with open(filename, 'w', encoding='utf-8') as f:
         f.write(text)
-        size = len(f.read())
-    return size
+    return len(text)
