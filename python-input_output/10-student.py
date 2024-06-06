@@ -13,14 +13,17 @@ class Student:
         self.last_name = last_name
         self.age = age
     def to_json(self, attrs=None):
-        """Retrieves a filtered or full dictionary representation of a Student instance."""
+        """Retrieves a filtered or full
+        dictionary representation of a
+        Student instance."""
         if attrs is None:
-            # Utilise tous les attributs si attrs est None
             attrs = self.__dict__.keys()
         else:
-            # Filtrer les attributs en fonction de la liste attrs
-            attrs = [attr for attr in attrs if hasattr(self, attr)]
-        # Créer le dictionnaire JSON en utilisant les attributs filtrés ou tous les attributs
+            filtered_attrs = []
+            for attr in attrs:
+                if hasattr(self, attr):
+                    filtered_attrs.append(attr)
+            attrs = filtered_attrs
         json_dict = {}
         for attr in attrs:
             json_dict[attr] = getattr(self, attr)
