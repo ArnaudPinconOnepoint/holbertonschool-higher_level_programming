@@ -13,8 +13,7 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """Retrieves a filtered or full dictionary 
-        representation of a Student instance."""
+        """Retrieves a dict repr of a Stud inst."""
         if attrs is None:
             # If attrs is None, retrieve all attributes
             return self.__dict__
@@ -26,7 +25,6 @@ class Student:
         return json_dict
 
     def reload_from_json(self, json_data):
-        """Replaces all attr of the Student 
-        instance with values from a JSON dictionary."""
+        """Repl all attr with val from a JSON dict"""
         for attr, value in json_data.items():
             setattr(self, attr, value)
