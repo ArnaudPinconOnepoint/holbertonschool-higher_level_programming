@@ -29,13 +29,16 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-        Static method that returns the JSON string representation of list_dictionaries.
+        Static method that returns the JSON string representation of 
+        list_dictionaries.
 
         Args:
-            list_dictionaries (list): List of dictionaries to be converted to JSON string.
+            list_dictionaries (list): List of dictionaries to be 
+            converted to JSON string.
 
         Returns:
-            str: JSON string representation of list_dictionaries or "[]" if the list is empty or None.
+            str: JSON string representation of list_dictionaries 
+            or "[]" if the list is empty or None.
         """
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
@@ -44,10 +47,12 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-        Class method that writes the JSON string representation of list_objs to a file.
+        Class method that writes the JSON string 
+        representation of list_objs to a file.
 
         Args:
-            list_objs (list): List of instances inheriting from Base (e.g., list of Rectangle or Square instances).
+            list_objs (list): List of instances inheriting from Base
+            (e.g., list of Rectangle or Square instances).
         """
         filename = f"{cls.__name__}.json"  # Create filename based on class name
         if list_objs is None:
@@ -72,7 +77,8 @@ class Base:
             json_string (str): String representing a list of dictionaries.
 
         Returns:
-            list: List of dictionaries represented by json_string, or an empty list if json_string is None or empty.
+            list: List of dictionaries represented by json_string,
+            or an empty list if json_string is None or empty.
         """
         if json_string is None or json_string == "":
             return []
