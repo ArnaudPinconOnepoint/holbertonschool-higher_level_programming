@@ -28,18 +28,20 @@ class Rectangle(Base):
             y (int, optional): y-coordinate of the rectangle's position (default is 0).
             id (int, optional): Identifier for the rectangle (default is None, auto-assigned by Base).
         """
+        super().__init__(id)  # Call the super class with id
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)  # Call super class constructor with id
 
     @property
     def width(self):
+        """Getter for width attribute."""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Setter for width attribute with validation."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -48,10 +50,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Getter for height attribute."""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """Setter for height attribute with validation."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -60,10 +64,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """Getter for x attribute."""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """Setter for x attribute with validation."""
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -72,10 +78,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Getter for y attribute."""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """Setter for y attribute with validation."""
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -83,31 +91,17 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """
-        Calculate and return the area of the rectangle.
-
-        Returns:
-            int: Area of the rectangle (width * height).
-        """
+        """Returns the area of the rectangle."""
         return self.width * self.height
 
     def display(self):
-        """
-        Display the rectangle instance by printing it with '#' characters,
-        considering the x and y coordinates.
-        """
-        for _ in range(self.y):
-            print()
+        """Prints the rectangle using the '#' character."""
+        print("\n" * self.y, end="")
         for _ in range(self.height):
-            print(' ' * self.x + '#' * self.width)
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
-        """
-        Override the string representation of Rectangle.
-
-        Returns:
-            str: Formatted string representing the rectangle instance.
-        """
+        """Returns a string representation of the rectangle."""
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
@@ -125,22 +119,26 @@ class Rectangle(Base):
             **kwargs (dict): Key-value pairs to update the attributes.
         """
         if args:
-            attributes = ["id", "width", "height", "x", "y"]
-            for i, value in enumerate(args):
+            attributes = ['id', 'width', 'height', 'x', 'y']
+            for i, arg in enumerate(args):
                 if i < len(attributes):
-                    setattr(self, attributes[i], value)
+                    setattr(self, attributes[i], arg)
         else:
             for key, value in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
 
-# Example usage:
-if __name__ == "__main__":
-    rect = Rectangle(5, 3)  # Creates a rectangle with width 5, height 3 (default x=0, y=0)
-    print(rect)  # Output: [Rectangle] (<id>) <x>/<y> - <width>/<height>
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the rectangle.
 
-    rect.update(5, 9, 6, 2, 3)  # Updates id to 5, width to 9, height to 6, x to 2, y to 3
-    print(rect)  # Output: [Rectangle] (5) 2/3 - 9/6
-
-    rect.update(id=10, width=15, height=20, x=5, y=5)  # Updates attributes using keyword arguments
-    print(rect)  # Output: [Rectangle] (10) 5/5 - 15/20
+        Returns:
+            dict: Dictionary containing id, width, height, x, and y attributes.
+        """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
