@@ -5,6 +5,7 @@ This module contains class Base.
 
 import json
 
+
 class Base:
     """
     Base class for creating objects with unique identifiers.
@@ -18,7 +19,7 @@ class Base:
 
         Args:
             id (int, optional): Identifier for the object. If not provided,
-                                it auto-increments using __nb_objects.
+            it auto-increments using __nb_objects.
         """
         if id is not None:
             self.id = id  # assign id if provided
