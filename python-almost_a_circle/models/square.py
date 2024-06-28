@@ -5,6 +5,7 @@ This module contains the Square class that inherits from Rectangle.
 
 from .rectangle import Rectangle
 
+
 class Square(Rectangle):
     """
     A class representing a Square, inheriting from Rectangle.
@@ -28,7 +29,8 @@ class Square(Rectangle):
             id (int, optional): Identifier for the square
             (default is None, auto-assigned by Base).
         """
-        super().__init__(size, size, x, y, id)  # Call the super class with width and height equal to size
+        super().__init__(size, size, x, y, id)
+        # Call the super class with width and height equal to size
 
     def __str__(self):
         """
