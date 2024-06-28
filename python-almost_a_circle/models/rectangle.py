@@ -5,6 +5,7 @@ This module contains the Rectangle class that inherits from Base.
 
 from .base import Base
 
+
 class Rectangle(Base):
     """
     A class representing a Rectangle, inheriting from Base.
@@ -105,7 +106,10 @@ class Rectangle(Base):
 
     def __str__(self):
         """Returns a string representation of the rectangle."""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return (
+            f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
+            f"{self.width}/{self.height}"
+        )
 
     def update(self, *args, **kwargs):
         """
