@@ -24,9 +24,12 @@ class Rectangle(Base):
         Args:
             width (int): Width of the rectangle.
             height (int): Height of the rectangle.
-            x (int, optional): x-coordinate of the rectangle's position (default is 0).
-            y (int, optional): y-coordinate of the rectangle's position (default is 0).
-            id (int, optional): Identifier for the rectangle (default is None, auto-assigned by Base).
+            x (int, optional): x-coordinate of the rectangle's
+            position (default is 0).
+            y (int, optional): y-coordinate of the rectangle's
+            position (default is 0).
+            id (int, optional): Identifier for the rectangle
+            (default is None, auto-assigned by Base).
         """
         super().__init__(id)  # Call the super class with id
         self.width = width
@@ -106,17 +109,21 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """
-        Update the attributes of the rectangle using positional and keyword arguments.
-        Positional arguments take precedence over keyword arguments if both are provided.
+        Update the attributes of the rectangle 
+        using positional and keyword arguments.
+        Positional arguments take precedence
+        over keyword arguments if both are provided.
 
         Args:
-            *args (int): Arguments to update the attributes in the specified order.
+            *args (int): Arguments to update the
+            attributes in the specified order.
                 1st argument: id
                 2nd argument: width
                 3rd argument: height
                 4th argument: x
                 5th argument: y
-            **kwargs (dict): Key-value pairs to update the attributes.
+            **kwargs (dict): Key-value pairs to
+            update the attributes.
         """
         if args:
             attributes = ['id', 'width', 'height', 'x', 'y']
@@ -130,10 +137,12 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """
-        Returns the dictionary representation of the rectangle.
+        Returns the dictionary representation
+        of the rectangle.
 
         Returns:
-            dict: Dictionary containing id, width, height, x, and y attributes.
+            dict: Dictionary containing
+            id, width, height, x, and y attributes.
         """
         return {
             'id': self.id,
