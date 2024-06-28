@@ -8,7 +8,6 @@ from .rectangle import Rectangle
 class Square(Rectangle):
     """
     A class representing a Square, inheriting from Rectangle.
-
     Attributes:
         size (int): Size of the square (both width and height).
         x (int): x-coordinate of the square's position.
@@ -22,9 +21,12 @@ class Square(Rectangle):
 
         Args:
             size (int): Size of the square (both width and height).
-            x (int, optional): x-coordinate of the square's position (default is 0).
-            y (int, optional): y-coordinate of the square's position (default is 0).
-            id (int, optional): Identifier for the square (default is None, auto-assigned by Base).
+            x (int, optional): x-coordinate of the square's
+            position (default is 0).
+            y (int, optional): y-coordinate of the square's
+            position (default is 0).
+            id (int, optional): Identifier for the square
+            (default is None, auto-assigned by Base).
         """
         super().__init__(size, size, x, y, id)  # Call the super class with width and height equal to size
 
@@ -41,7 +43,6 @@ class Square(Rectangle):
     def size(self):
         """
         Getter for size attribute.
-        
         Returns:
             int: Size of the square (both width and height).
         """
@@ -51,10 +52,8 @@ class Square(Rectangle):
     def size(self, value):
         """
         Setter for size attribute.
-
         Args:
             value (int): Size of the square (both width and height).
-        
         Raises:
             TypeError: If value is not an integer.
             ValueError: If value is <= 0.
@@ -69,7 +68,6 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """
         Update attributes of the Square.
-
         Args:
             *args: List of non-keyworded arguments in the order:
                 1. id
@@ -90,10 +88,11 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """
-        Returns the dictionary representation of the square.
-
+        Returns the dictionary representation
+        of the square.
         Returns:
-            dict: Dictionary containing id, size, x, and y attributes.
+            dict: Dictionary containing id,
+            size, x, and y attributes.
         """
         return {
             'id': self.id,
