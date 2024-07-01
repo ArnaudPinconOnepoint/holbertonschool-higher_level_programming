@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-This module contains class Base.
+This module contains the Base class.
 """
 
 import json
+from .rectangle import Rectangle
 
 
 class Base:
@@ -48,8 +49,8 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-        Class method that writes the JSON string
-        representation of list_objs to a file.
+        Class method that writes the JSON string representation
+        of list_objs to a file.
 
         Args:
             list_objs (list): List of instances inheriting from Base
@@ -84,3 +85,26 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create an instance with all attributes already set.
+
+        Args:
+            **dictionary: Keyword arguments with attributes to set.
+
+        Returns:
+            Instance of the class with attributes set.
+        """
+        # Create a "dummy" instance
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)  # dummy width and height
+        elif cls.__name__ == "Square":
+            dummy = cls(1)  # dummy size
+        else:
+            dummy = cls()  # handle other potential cases
+
+        # Use the update method to apply the real values
+        dummy.update(**dictionary)
+        return dummy
