@@ -99,10 +99,30 @@ class Base:
             instance: Instance of the class with
             attributes set from dictionary.
         """
-        if 'size' in dictionary:
+        if 'size' in dictionary: # the object is a square
             dummy_instance = cls(1)
-        else:
+        else: # the object is a rectangle
             dummy_instance = cls(1, 1)
 
         dummy_instance.update(**dictionary)
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Class method that returns a list of instances loaded from a JSON file.
+
+        Returns:
+            list: List of instances loaded from the JSON file.
+                If the file doesn't exist, returns an empty list.
+        """
+        filename = f"{cls.__name__}.json"  # Construct filename based on class name
+        try:
+            with open(filename, 'r') as f:
+                json_string = f.read()  # Read JSON string from file
+        except FileNotFoundError:
+            return []  # Return empty list if file doesn't exist
+
+        list_dicts = cls.from_json_string(json_string)  # Convert JSON string to list of dictionaries
+        instances = [cls.create(**dict_obj) for dict_obj in list_dicts]  # Create instances from dictionaries
+        return instances
