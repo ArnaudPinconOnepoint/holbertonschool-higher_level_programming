@@ -1,0 +1,49 @@
+"The ``Base`` module
+======================
+
+Using ``Base``
+-------------------
+
+First import ``Base`` from the ``base`` file:
+
+    >>> Base = __import__('base').Base
+
+Tests:
+
+    Test - check ``to_json_string`` method with empty list
+    >>> Base.to_json_string([])
+    '[]'
+
+    Test - check ``to_json_string`` method with non-empty list
+    >>> Base.to_json_string([{"id": 1, "name": "Object 1"}, {"id": 2, "name": "Object 2"}])
+    '[{"id": 1, "name": "Object 1"}, {"id": 2, "name": "Object 2"}]'
+
+    Test - check ``to_json_string`` method with None
+    >>> Base.to_json_string(None)
+    '[]'
+
+    Test - check ``save_to_file`` method
+    >>> Base.save_to_file([])
+    # Check if 'Base.json' file exists and verify its content manually
+
+    Test - check ``from_json_string`` method with empty string
+    >>> Base.from_json_string('[]')
+    []
+
+    Test - check ``from_json_string`` method with non-empty string
+    >>> Base.from_json_string('[{"id": 1, "name": "Object 1"}, {"id": 2, "name": "Object 2"}]')
+    [{"id": 1, "name": "Object 1"}, {"id": 2, "name": "Object 2"}]
+
+    Test - check ``from_json_string`` method with None
+    >>> Base.from_json_string(None)
+    []
+
+    Test - check ``create`` method
+    >>> instance = Base.create(id=1, name="Object 1")
+    >>> isinstance(instance, Base)
+    True
+    # Add more assertions based on expected attributes
+
+    Test - check ``load_from_file`` method
+    >>> Base.load_from_file()
+    # Check if instances are correctly loaded from 'Base.json' file
