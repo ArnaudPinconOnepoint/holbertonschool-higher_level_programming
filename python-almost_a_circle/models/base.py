@@ -5,6 +5,7 @@ This module contains the Base class.
 
 import json
 from .rectangle import Rectangle
+from .square import Square
 
 
 class Base:
@@ -89,22 +90,19 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        Create an instance with all attributes already set.
+        Class method that returns an instance with all attributes already set
+        using the dictionary provided.
 
         Args:
-            **dictionary: Keyword arguments with attributes to set.
+            **dictionary (dict): Dictionary containing attribute names and values.
 
         Returns:
-            Instance of the class with attributes set.
+            instance: Instance of the class with attributes set from dictionary.
         """
-        # Create a "dummy" instance
-        if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)  # dummy width and height
-        elif cls.__name__ == "Square":
-            dummy = cls(1)  # dummy size
+        if 'size' in dictionary:
+            dummy_instance = Square(1)
         else:
-            dummy = cls()  # handle other potential cases
+            dummy_instance = Rectangle(1, 1)
 
-        # Use the update method to apply the real values
-        dummy.update(**dictionary)
-        return dummy
+        dummy_instance.update(**dictionary)
+        return dummy_instance
