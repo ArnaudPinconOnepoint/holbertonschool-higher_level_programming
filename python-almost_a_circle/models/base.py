@@ -92,10 +92,12 @@ class Base:
         using the dictionary provided.
 
         Args:
-            **dictionary (dict): Dictionary containing attribute names and values.
+            **dictionary (dict): Dictionary
+            containing attribute names and values.
 
         Returns:
-            instance: Instance of the class with attributes set from dictionary.
+            instance: Instance of the class with
+            attributes set from dictionary.
         """
         if 'size' in dictionary:
             dummy_instance = cls(1)
