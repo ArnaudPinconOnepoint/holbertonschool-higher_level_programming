@@ -99,10 +99,8 @@ class Base:
             instance: Instance of the class with
             attributes set from dictionary.
         """
-        if 'size' in dictionary:
-            dummy_instance = cls(1)
-        else:
-            dummy_instance = cls(1, 1)
+
+        dummy_instance = cls(1)
 
         dummy_instance.update(**dictionary)
         return dummy_instance
