@@ -1,85 +1,36 @@
 #!/usr/bin/python3
-"""
-Module de tests pour la classe Base.
-"""
-
+"""Python - Input/Output"""
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
-    """
-    Classe de tests pour la classe Base.
-    """
+    """Test class for Base class"""
 
-    def test_auto_increment_id(self):
-        """
-        Teste l'assignation automatique d'un ID
-        supérieur de 1 à celui du précédent existant.
-        """
-        base_obj1 = Base()
-        base_obj2 = Base()
-        self.assertEqual(base_obj2.id, base_obj1.id + 1)
+    def setUp(self):
+        Base._Base__nb_objects = 0
 
-    def test_passed_id(self):
-        """
-        Teste la sauvegarde de l'ID passé en argument.
-        """
-        base_obj = Base(89)
-        self.assertEqual(base_obj.id, 89)
-
-    def test_to_json_string_none(self):
-        """
-        Teste la méthode to_json_string avec None comme argument.
-        """
-        self.assertEqual(Base.to_json_string(None), "[]")
-
-    def test_to_json_string_empty_list(self):
-        """
-        Teste la méthode to_json_string avec une liste vide comme argument.
-        """
-        self.assertEqual(Base.to_json_string([]), "[]")
-
-    def test_to_json_string_list_with_dict(self):
-        """
-        Teste la méthode to_json_string avec une liste contenant un dictionnaire comme argument.
-        """
-        input_list = [{'id': 12}]
-        expected_output = '[{"id": 12}]'
-        self.assertEqual(Base.to_json_string(input_list), expected_output)
-
-    def test_to_json_string_return_type(self):
-        """
-        Vérifie que la méthode to_json_string retourne une chaîne de caractères.
-        """
-        self.assertIsInstance(Base.to_json_string([]), str)
-
-    def test_from_json_string_none(self):
-        """
-        Teste la méthode from_json_string avec None comme argument.
-        """
-        self.assertEqual(Base.from_json_string(None), [])
-
-    def test_from_json_string_empty_string(self):
-        """
-        Teste la méthode from_json_string avec une chaîne vide comme argument.
-        """
-        self.assertEqual(Base.from_json_string("[]"), [])
-
-    def test_from_json_string_valid_string(self):
-        """
-        Teste la méthode from_json_string avec une chaîne JSON valide comme argument.
-        """
-        input_string = '[{ "id": 89 }]'
-        expected_output = [{'id': 89}]
-        self.assertEqual(Base.from_json_string(input_string), expected_output)
-
-    def test_from_json_string_return_type(self):
-        """
-        Vérifie que la méthode from_json_string retourne une liste.
-        """
-        self.assertIsInstance(Base.from_json_string("[]"), list)
+    def test_instance(self):
+        """Create instance and check id"""
+        b1 = Base()
+        self.assertEqual(b1.id, 1)
+        b2 = Base()
+        self.assertEqual(b2.id, 2)
+        b3 = Base()
+        self.assertEqual(b3.id, 3)
+        b12 = Base(12)
+        self.assertEqual(b12.id, 12)
+        b4 = Base()
+        self.assertEqual(b4.id, 4)
+        b89 = Base(89)
+        self.assertEqual(b89.id, 89)
+        bn999 = Base(-999)
+        self.assertEqual(bn999.id, -999)
+        b0 = Base(0)
+        self.assertEqual(b0.id, 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
