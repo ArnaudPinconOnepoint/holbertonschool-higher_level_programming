@@ -9,8 +9,9 @@ import urllib.request
 
 def fetch_status():
     """Fetches and displays the status of a website."""
-    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
-        body = response.read()
+    req = urllib.request.Request('https://intranet.hbtn.io/status')
+    with urllib.request.urlopen(req) as response:
+       body = response.read()
 
     print("Body response:")
     print(f"    - type: {type(body)}")
