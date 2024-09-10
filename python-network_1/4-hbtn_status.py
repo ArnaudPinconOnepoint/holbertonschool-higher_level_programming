@@ -4,22 +4,20 @@
 This module fetches and displays the status of a website.
 """
 
-import urllib.request
+import requests
 
 
 def fetch_status(url):
     """Fetches and displays the status of a website."""
     try:
-        req = urllib.request.Request(url)
-        with urllib.request.urlopen(req) as response:
-            body = response.read()
-    except urllib.error.HTTPError as e:
+        r = requests.get(url)
+    except requests.exceptions as e:
         print(f"Error code: {e.code}")
         return
 
     print("Body response:")
-    print(f"    - type: {type(body)}")
-    print(f"    - content: {body.decode('utf-8')}")
+    print(f"    - type: {type(r)}")
+    print(f"    - content: {r.content}")
 
 
 if __name__ == "__main__":
