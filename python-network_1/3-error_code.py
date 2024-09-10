@@ -18,10 +18,7 @@ def fetch_status(url):
         print(f"Error code: {e.code}")
         return
 
-    print("Body response:")
-    print(f"    - type: {type(body)}")
-    print(f"    - content: {body}")
-    print(f"    - utf8 content: {body.decode('utf-8')}")
+    print(body.decode('utf-8'))
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
