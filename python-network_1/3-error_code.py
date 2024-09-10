@@ -8,9 +8,10 @@ This module fetches and displays the status of a website.
 import urllib.request
 import sys
 
+
 def fetch_status(url):
     """Fetches and displays the status of a website."""
-    try: 
+    try:
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as response:
             body = response.read()
@@ -19,6 +20,7 @@ def fetch_status(url):
         return
 
     print(body.decode('utf-8'))
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
