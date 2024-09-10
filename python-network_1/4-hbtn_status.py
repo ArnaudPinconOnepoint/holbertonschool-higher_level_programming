@@ -17,7 +17,7 @@ def fetch_status(url):
 
     print("Body response:")
     print(f"    - type: {type(r.text)}")
-    print(f"    - content: {r.text}")
+    print(f"    - content: {r.status_code}")
 
 
 if __name__ == "__main__":
