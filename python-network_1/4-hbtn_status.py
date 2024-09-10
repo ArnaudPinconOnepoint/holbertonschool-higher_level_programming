@@ -21,5 +21,5 @@ def fetch_status(url):
 
 
 if __name__ == "__main__":
-    fetch_status("https://intranet.hbtn.io/status")
+    fetch_status("http://0.0.0.0:5050/status")
 
