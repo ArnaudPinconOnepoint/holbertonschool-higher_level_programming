@@ -16,7 +16,7 @@ def fetch_network(url, email):
         print(f"Error code: {e.code}")
         return
 
-    print(r.text)
+    print(r.content.decode("utf-8"))
 
 
 if __name__ == "__main__":
