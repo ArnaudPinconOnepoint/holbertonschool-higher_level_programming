@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-This module fetches and displays the status of a website.
+This module fetches and displays the body of the response from a URL.
 """
 
 import requests
@@ -9,19 +9,18 @@ import sys
 
 
 def fetch_network(url):
-    """Fetches and displays the status of a website."""
+    """Fetches and displays the body of the response from a URL."""
     try:
         r = requests.get(url)
-        print(r.content.decode("utf-8"))
-    except requests.exceptions as e:
-        print(f"Error code: {r.status_code}")
-        return
-
-    print(r.content.decode("utf-8"))
+        # Check if the HTTP status code is greater than or equal to 400
+        if r.status_code >= 400:
+            print(f"Error code: {r.status_code}")
+        else:
+            # Print the content of the response (body)
+            print(r.content.decode("utf-8"))
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("You need <URL>")
-    else:
-        fetch_network(sys.argv[1])
+    fetch_network(sys.argv[1])
