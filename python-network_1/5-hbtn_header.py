@@ -1,25 +1,22 @@
 #!/usr/bin/python3
 """
-3-error_code.py
 
 This module fetches and displays the status of a website.
 """
 
-import urllib.request
+import requests
 import sys
 
 
 def fetch_status(url):
     """Fetches and displays the status of a website."""
     try:
-        req = urllib.request.Request(url)
-        with urllib.request.urlopen(req) as response:
-            body = response.read()
-    except urllib.error.HTTPError as e:
+        r = requests.get(url)
+    except requests.exceptions as e:
         print(f"Error code: {e.code}")
         return
 
-    print(body.decode('utf-8'))
+    print(r.headers.get("X-Request-Id"))
 
 
 if __name__ == "__main__":
