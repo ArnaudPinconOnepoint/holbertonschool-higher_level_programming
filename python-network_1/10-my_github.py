@@ -12,7 +12,7 @@ def fetch_github_user_id(username, token):
     """Fetches the GitHub user ID using Basic Authentication."""
     try:
         response = requests.get(
-            "https://api.github.com/ArnaudPinconOnepoint",
+            "https://api.github.com/{username}",
             auth=(username, token)
         )
         response.raise_for_status()  # Raise an exception for HTTP errors
