@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 
-This module fetches and displays the body of the response from a URL and check if there is an error.
+This module fetches and displays the body of the response
+from a URL and check if there is an error.
 """
 
 import requests
