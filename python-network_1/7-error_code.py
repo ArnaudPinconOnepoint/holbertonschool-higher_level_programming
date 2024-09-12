@@ -7,6 +7,7 @@ This module fetches and displays the body of the response
 import sys
 import requests
 
+
 def fetch_network(url):
     """Fetches and displays the body of the response from a URL."""
     try:
