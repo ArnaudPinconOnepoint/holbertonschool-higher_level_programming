@@ -3,7 +3,7 @@
 1-hbtn_header
 
 This module takes a URL as a command-line argument, sends a request to the URL,
-and displays the value of the X-Request-Id variable found in the header of the response.
+and displays the value of the X-Request-Id variable found in the header of the response test.
 """
 
 import urllib.request
