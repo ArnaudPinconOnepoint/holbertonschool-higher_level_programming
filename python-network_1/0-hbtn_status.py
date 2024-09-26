@@ -2,21 +2,28 @@
 """
 0-hbtn_status
 
-This script fetches the status of a
-website using urllib with a User-Agent header.
+This script fetches the status of a website using urllib with a User-Agent header.
+It displays the type, content, and utf-8 decoded content of the response.
 """
 
 import urllib.request
 
 def fetch_status():
-    """Fetches and displays the status of a website."""
+    """
+    Fetches and displays the status of a website.
+    
+    The function sends a GET request to the Holberton intranet
+    and prints the response body with proper formatting.
+    """
     url = 'https://intranet.hbtn.io/status'
-    user_agent = 'Mozilla/5.0 (Linux x86_64)'  # Common user-agent
+    
+    # User-Agent header using get method for dictionary access
+    headers = {'User-Agent': 'HolbertonSchool-Checker'}
 
-    # Create a request object with the user-agent header
-    request = urllib.request.Request(url, headers={'User-Agent': user_agent})
+    # Create a request object
+    request = urllib.request.Request(url, headers=headers)
 
-    # Use a with statement to manage the request
+    # Use a with statement to handle the request
     with urllib.request.urlopen(request) as response:
         body = response.read()
         print("Body response:")
