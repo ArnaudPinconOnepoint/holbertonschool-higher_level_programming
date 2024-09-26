@@ -26,7 +26,7 @@ def fetch_github_user_id(username, token):
         user_info = response.json()
         user_id = user_info.get('id')
         if user_id:
-            print(f"User ID: {user_id}")
+            print(f"{user_id}")
         else:
             print("User ID not found")
     except ValueError:
