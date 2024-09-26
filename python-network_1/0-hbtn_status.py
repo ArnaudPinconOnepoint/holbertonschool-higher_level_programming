@@ -18,7 +18,7 @@ def fetch_status():
     url = 'https://intranet.hbtn.io/status'
     
     # User-Agent header using get method for dictionary access
-    headers = {'User-Agent': 'HolbertonSchool-Checker'}
+    headers={"User-agent": "Mozilla/5.0 (Linux x86_64)"}
 
     # Create a request object
     request = urllib.request.Request(url, headers=headers)
