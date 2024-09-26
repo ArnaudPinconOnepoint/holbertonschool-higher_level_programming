@@ -2,7 +2,8 @@
 """
 0-hbtn_status
 
-This script fetches the status of a website using urllib with a User-Agent header.
+This script fetches the status of a
+website using urllib with a User-Agent header.
 """
 
 import urllib.request
