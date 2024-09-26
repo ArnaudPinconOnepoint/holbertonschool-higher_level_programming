@@ -6,5 +6,3 @@ GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost' WITH GRANT OPTION;
 
 -- Reload the privilege tables to ensure that the changes take effect
 FLUSH PRIVILEGES;
-
-SHOW GRANTS FOR 'user_0d_1'@'localhost';
