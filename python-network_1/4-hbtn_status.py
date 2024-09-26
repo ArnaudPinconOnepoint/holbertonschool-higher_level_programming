@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-This module fetches and displays the status of a website.
+This module fetches and displays the status of a website test.
 """
 
 import requests
