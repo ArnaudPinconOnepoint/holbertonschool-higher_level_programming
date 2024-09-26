@@ -8,13 +8,8 @@ It displays the type, content, and utf-8 decoded content of the response.
 
 import urllib.request
 
-def fetch_status():
-    """
-    Fetches and displays the status of a website.
-    
-    The function sends a GET request to the Holberton intranet
-    and prints the response body with proper formatting.
-    """
+
+if __name__ == "__main__":
     url = 'https://intranet.hbtn.io/status'
     
     # User-Agent header using get method for dictionary access
@@ -30,6 +25,3 @@ def fetch_status():
         print(f"\t- type: {type(body)}")
         print(f"\t- content: {body}")
         print(f"\t- utf8 content: {body.decode('utf-8')}")
-
-if __name__ == "__main__":
-    fetch_status()
