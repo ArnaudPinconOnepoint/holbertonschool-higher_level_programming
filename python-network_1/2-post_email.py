@@ -1,26 +1,19 @@
 #!/usr/bin/python3
 """
-1-hbtn_header
-
-This module takes a URL as a command-line argument, sends a request to the URL,
-and displays the value of the X-Request-Id variable found in the header of the response.
+script that takes in a URL and an email
+sends a POST request to the passed URL with the email as a parameter
+and displays the body of the response
 """
-
-import urllib.request
 import sys
-
-def send_email(url, email):
-    """Fetches and displays the value of the X-Request-Id header from a given URL."""
-    value = { "email": email}
-    data = value.encode('utf-8')  # data should be bytes
-    req = urllib.request.Request(url, data, headers={'Content-Type': 'application/json'})
-    with urllib.request.urlopen(req) as response:
-        the_page = response.read()
-        print(the_page.decode('utf-8'))
-
-
+import urllib.parse
+import urllib.request
+ 
+ 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: ./1-hbtn_header.py <URL>")
-    else:
-        send_email(sys.argv[1], sys.argv[2])
+    url = sys.argv[1]
+    body = {"email": sys.argv[2]}
+    data = urllib.parse.urlencode(body).encode("ascii")
+ 
+    request = urllib.request.Request(url, data=data, method="POST")
+    with urllib.request.urlopen(request) as response:
+        print(response.read().decode("utf-8"))
