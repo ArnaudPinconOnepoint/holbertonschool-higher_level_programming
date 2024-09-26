@@ -36,6 +36,6 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: ./script.py <username> <personal_access_token>")
     else:
-        username = sys.argv[1]
-        token = sys.argv[2]
+        username = sys.argv[0]
+        token = sys.argv[1]
         fetch_github_user_id(username, token)
