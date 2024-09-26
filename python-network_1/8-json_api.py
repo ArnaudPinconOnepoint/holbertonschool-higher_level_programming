@@ -10,10 +10,10 @@ import requests
 import sys
 
 
-def fetch_network(letter=""):
+def fetch_network(let=""):
     """Fetches data from the network and processes the res"""
     try:
-        r=requests.post("http://0.0.0.0:5000/search_user", data={'q': letter})
+        r = requests.post("http://0.0.0.0:5000/search_user", data={'q': let})
         r.raise_for_status()  # Raise an exception for HTTP errors
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
