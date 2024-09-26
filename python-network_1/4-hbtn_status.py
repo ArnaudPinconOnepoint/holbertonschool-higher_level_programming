@@ -17,9 +17,8 @@ def fetch_status(url):
 
     print("Body response:")
     print(f"    - type: {type(r.text)}")
-    print(f"    - content: {r.status_code}")
+    print(f"    - content: {r.ok}")
 
 
 if __name__ == "__main__":
     fetch_status("https://intranet.hbtn.io/status")
-
