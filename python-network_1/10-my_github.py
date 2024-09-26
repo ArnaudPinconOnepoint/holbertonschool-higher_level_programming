@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-This module uses GitHub API with Basic Authentication to display the user ID
-based on provided GitHub credentials (username and personal access token).
+This module uses GitHub API with Basic
+Authentication to display the user ID
+based on provided GitHub credentials
+(username and personal access token).
 """
 
 
@@ -15,7 +17,7 @@ def fetch_github_user_id(username, token):
             "https://api.github.com/user",
             auth=(username, token)
         )
-        response.raise_for_status()  # Raise an exception for HTTP errors
+        response.raise_for_status()
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
         return
