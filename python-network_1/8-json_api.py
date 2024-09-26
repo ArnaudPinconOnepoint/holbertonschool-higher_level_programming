@@ -1,14 +1,17 @@
 #!/usr/bin/python3
 """
-This module sends a POST request with a letter parameter to a specific URL
-and processes the JSON response to display the user id and name or appropriate error messages.
+This module sends a POST request with a 
+letter parameter to a specific URL
+and processes the JSON response to display 
+the user id and name or appropriate error messages.
 """
 
 import requests
 import sys
 
+
 def fetch_network(letter=""):
-    """Fetches data from the network and processes the response."""
+    """Fetches data from the network and processes the res"""
     try:
         r = requests.post("http://0.0.0.0:5000/search_user", data={'q': letter})
         r.raise_for_status()  # Raise an exception for HTTP errors
