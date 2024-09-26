@@ -3,7 +3,6 @@
 0-hbtn_status
 
 This script fetches the status of a website using urllib with a User-Agent header.
-It displays the type, content, and utf-8 decoded content of the response.
 """
 
 import urllib.request
