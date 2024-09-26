@@ -8,18 +8,18 @@ It displays the type, content, and utf-8 decoded content of the response.
 
 import urllib.request
 
-
 if __name__ == "__main__":
     url = 'https://intranet.hbtn.io/status'
     
-    # User-Agent header using get method for dictionary access
-    headers={"User-agent": "Mozilla/5.0 (Linux x86_64)"}
+    # User-Agent header
+    headers = {"User-Agent": "Mozilla/5.0 (Linux x86_64)"}
 
-    # Create a request object
+    # Create a request object with the headers
     request = urllib.request.Request(url, headers=headers)
 
-    # Use a with statement to handle the request
+    # Use a with statement to handle the request and response
     with urllib.request.urlopen(request) as response:
+        body = response.read()
         print("Body response:")
         print(f"\t- type: {type(body)}")
         print(f"\t- content: {body}")
