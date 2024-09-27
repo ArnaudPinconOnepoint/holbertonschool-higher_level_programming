@@ -1,3 +1,6 @@
+-- Use the database hbtn_0d_usa
+USE hbtn_0d_usa;
+
 -- Select cities where the state_id corresponds to California
 SELECT * 
 FROM cities 
