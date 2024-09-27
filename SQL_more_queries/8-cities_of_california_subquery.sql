@@ -1,5 +1,5 @@
 -- Select cities where the state_id corresponds to California
-SELECT * 
+SELECT id, name
 FROM cities 
 WHERE state_id = (
     SELECT id 
