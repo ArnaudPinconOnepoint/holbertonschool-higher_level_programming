@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module to list all cities from the database hbtn_0e_4_usa"""
+"""Module to list all cities"""
 import MySQLdb
 import sys
 
