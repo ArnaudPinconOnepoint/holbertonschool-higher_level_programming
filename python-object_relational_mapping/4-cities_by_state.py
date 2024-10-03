@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module"""
+"""Module test"""
 import MySQLdb
 import sys
 
