@@ -10,7 +10,7 @@ def list_states(user, pwd, db, search):
                          user=user, passwd=pwd, db=db, port=3306)
     cursor = db.cursor()
 
-    # Execute the query    
+    # Execute the query
     query = "SELECT * FROM states WHERE BINARY name = %s"\
         "ORDER BY id ASC"
     cursor.execute(query, (search,))
