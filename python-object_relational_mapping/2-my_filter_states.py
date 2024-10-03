@@ -19,7 +19,7 @@ def list_states(user, pwd, db, search):
 
     # Display the results
     for state in states:
-        print("("+state.id+","+state.name+")")
+        print(state)
 
     # Close the cursor and the database connection
     cursor.close()
