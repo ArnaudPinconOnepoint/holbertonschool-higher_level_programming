@@ -3,6 +3,7 @@
 import MySQLdb
 import sys
 
+
 def list_cities(user, pwd, db):
     """List all cities from the specified database."""
     # Connect to the MySQL server
@@ -13,18 +14,18 @@ def list_cities(user, pwd, db):
         db=db,
         port=3306
     )
-    
+
     cursor = db_connection.cursor()
-    
+
     # Execute the query to select all cities ordered by cities.id
     query = "SELECT cities.id, cities.name, states.name FROM cities " \
             "JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC"
-    
+
     cursor.execute(query)
-    
+
     # Fetch all the results
     cities = cursor.fetchall()
-    
+
     # Display the results
     for city in cities:
         print(city)
@@ -32,6 +33,7 @@ def list_cities(user, pwd, db):
     # Close the cursor and the database connection
     cursor.close()
     db_connection.close()
+
 
 if __name__ == "__main__":
     # Check if the correct number of arguments are provided
