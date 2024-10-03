@@ -7,7 +7,7 @@ import sys
 def list_states(user, pwd, db):
     # Connect to the MySQL server
     db = MySQLdb.connect(host="localhost",
-        user=user, passwd=pwd, db=db, port=3306)
+                         user=user, passwd=pwd, db=db, port=3306)
     cursor = db.cursor()
 
     # Execute the query to select all states, ordered by states.id
