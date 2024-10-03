@@ -11,7 +11,9 @@ def list_states(user, pwd, db, search):
     cursor = db.cursor()
 
     # Execute the query
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(search)
+    query = "SELECT * FROM states WHERE name = '{}' " \
+            "ORDER BY id ASC".format(search)
+
     cursor.execute(query)
 
     # Fetch all the results
