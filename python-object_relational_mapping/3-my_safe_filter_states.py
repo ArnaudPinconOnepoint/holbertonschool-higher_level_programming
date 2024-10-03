@@ -14,8 +14,6 @@ def list_states(user, pwd, db, search):
     query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC"
     cursor.execute(query, (search,))
 
-    cursor.execute(query)
-
     # Fetch all the results
     states = cursor.fetchall()
 
