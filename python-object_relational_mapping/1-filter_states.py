@@ -11,7 +11,8 @@ def list_states(user, pwd, db):
     cursor = db.cursor()
 
     # Execute the query to select all states, ordered by states.id
-    cursor.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute(
+        "SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
 
     # Fetch all the results
     states = cursor.fetchall()
