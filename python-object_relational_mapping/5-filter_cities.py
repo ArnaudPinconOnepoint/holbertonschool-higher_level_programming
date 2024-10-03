@@ -18,7 +18,7 @@ def list_cities(user, pwd, db, name):
     cursor = db_connection.cursor()
 
     # Execute the query to select all cities ordered by cities.id
-    query = "SELECT cities.id, cities.name, states.name FROM cities " \
+    query = "SELECT cities.name FROM cities " \
             "JOIN states ON cities.state_id = states.id " \
             " WHERE states.name = %s ORDER BY cities.id ASC"
 
