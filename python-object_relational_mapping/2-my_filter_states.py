@@ -27,9 +27,6 @@ def list_states(user, pwd, db, search):
 
 
 if __name__ == "__main__":
-    # Check if the correct number of arguments are provided
-    if len(sys.argv) != 4:
-        sys.exit(1)
 
     # Get the arguments
     user = sys.argv[1]
