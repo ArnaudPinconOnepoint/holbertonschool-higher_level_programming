@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module"""
+"""Module with param"""
 import MySQLdb
 import sys
 
