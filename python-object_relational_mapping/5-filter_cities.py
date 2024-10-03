@@ -22,7 +22,7 @@ def list_cities(user, pwd, db, name):
             "JOIN states ON cities.state_id = states.id " \
             " WHERE states.name = %s ORDER BY cities.id ASC"
 
-    cursor.execute(query, (name,))
+    cursor.execute(query, name)
 
     # Fetch all the results
     cities = cursor.fetchall()
