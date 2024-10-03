@@ -11,7 +11,7 @@ def list_states(user, pwd, db, search):
     cursor = db.cursor()
 
     # Execute the query
-    query = "SELECT * FROM states WHERE name = '{}' " \
+    query = "SELECT * FROM states WHERE BINARY name = '{}' " \
             "ORDER BY id ASC".format(search)
 
     cursor.execute(query)
