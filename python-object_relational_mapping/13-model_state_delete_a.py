@@ -39,7 +39,12 @@ def delete_states_with_a(username, password, database):
     session = Session()
 
     # Query and delete State objects with names containing 'a'
-    states_to_delete = session.query(State).filter(State.name.like('%a%')).all()
+    states_to_delete = (
+        session.query(State)
+        .filter(State.name.like('%a%'))
+        .all()
+    )
+
     for state in states_to_delete:
         session.delete(state)
 
