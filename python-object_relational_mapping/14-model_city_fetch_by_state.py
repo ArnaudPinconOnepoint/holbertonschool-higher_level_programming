@@ -23,6 +23,9 @@ if __name__ == "__main__":
         f'{database}', pool_pre_ping=True
     )
 
+    # Create all tables in the engine (if not exist)
+    Base.metadata.create_all(engine)
+
     # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
 
@@ -32,9 +35,13 @@ if __name__ == "__main__":
     # Query to get all cities with their states
     results = session.query(City).join(State).order_by(City.id).all()
 
-    # Display results
-    for city in results:
-        print(f"{city.state.name}: ({city.id}) {city.name}")
+    # Check if results are empty
+    if not results:
+        print("No cities found.")
+    else:
+        # Display results
+        for city in results:
+            print(f"{city.state.name}: ({city.id}) {city.name}")
 
     # Close the session
     session.close()
