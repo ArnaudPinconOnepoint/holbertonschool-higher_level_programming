@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def list_states(username, password, database):
     """
     Connects to a MySQL db and lists all State objects.
