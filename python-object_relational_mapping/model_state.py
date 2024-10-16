@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Module to list all cities"""
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
