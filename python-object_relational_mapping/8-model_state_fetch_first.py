@@ -20,12 +20,12 @@ from model_state import Base, State
 def print_first_state(username, password, database):
     """
     Connects to a MySQL database and prints the first State object.
-    
+
     Args:
         username (str): The MySQL username.
         password (str): The MySQL password.
         database (str): The name of the MySQL database.
-    
+
     Prints:
         The first State object in the format: <id>: <name>.
         If no state is found, prints 'Nothing'.
