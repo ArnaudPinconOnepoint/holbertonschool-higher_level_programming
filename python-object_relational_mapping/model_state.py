@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module to list all cities"""
+"""Module"""
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -9,6 +9,7 @@ Base = declarative_base()
 
 # Define the State class
 class State(Base):
+    """Class"""
     __tablename__ = 'states'
 
     # Define the columns
