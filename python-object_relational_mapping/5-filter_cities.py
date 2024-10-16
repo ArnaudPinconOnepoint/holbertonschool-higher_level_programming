@@ -48,7 +48,6 @@ if __name__ == "__main__":
 
     # Ensure the correct number of arguments are provided
     if len(sys.argv) != 5:
-        print("Usage: ./5-filter_cities.py <mysql_username> <mysql_password> <database_name> <state_name>")
         sys.exit(1)
 
     # Get the arguments
