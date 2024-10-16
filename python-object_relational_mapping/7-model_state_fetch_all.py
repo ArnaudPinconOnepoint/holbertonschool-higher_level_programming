@@ -10,7 +10,7 @@ from model_state import Base, State
 
 def list_states(username, password, database):
     """
-    Connects to a MySQL database and lists all State objects.
+    Connects to a MySQL db and lists all State objects.
     """
     engine = create_engine(
         'mysql+mysqldb://' + username + ':' + password +
