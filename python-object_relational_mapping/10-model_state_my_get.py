@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-A script that lists all State objects that contain the letter 'a'
-from the database hbtn_0e_6_usa.
+A script that prints the State object with the name passed as an
+argument from the database hbtn_0e_6_usa.
 
 Usage: ./script_name.py <mysql username> <mysql password>
-<database name>
+<database name> <state name>
 
 This script:
 - Connects to a MySQL database using SQLAlchemy.
-- Retrieves and prints all State objects that contain 'a' in their name,
-  sorted in ascending order by id.
+- Retrieves and prints the State object with the given name.
+- If no state with that name exists, prints 'Not found'.
 """
 import sys
 from sqlalchemy import create_engine
@@ -17,18 +17,20 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
-def list_states_with_a(username, password, database):
+def print_state_by_name(username, password, database, state_name):
     """
-    Connects to a MySQL database and lists all State objects
-    that contain the letter 'a' in their name.
+    Connects to a MySQL database and prints the State object
+    with the given name.
 
     Args:
         username (str): The MySQL username.
         password (str): The MySQL password.
         database (str): The name of the MySQL database.
+        state_name (str): The name of the state to search for.
 
     Prints:
-        Each State object that contains 'a' in the format: <id>: <name>.
+        The id of the State object with the given name.
+        If no state is found, prints 'Not found'.
     """
     engine = create_engine(
         'mysql+mysqldb://' + username + ':' + password +
@@ -43,14 +45,14 @@ def list_states_with_a(username, password, database):
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query all State objects that contain the letter 'a', sorted by id
-    states = session.query(State).filter(
-        State.name.like('%a%')
-    ).order_by(State.id).all()
+    # Query the State object by name using parameterized queries
+    state = session.query(State).filter(State.name == state_name).first()
 
-    # Print each state in the format: <id>: <name>
-    for state in states:
-        print(f"{state.id}: {state.name}")
+    # Print the state id or 'Not found' if no state exists
+    if state:
+        print(state.id)
+    else:
+        print("Not found")
 
     # Close the session
     session.close()
@@ -58,15 +60,16 @@ def list_states_with_a(username, password, database):
 
 if __name__ == "__main__":
     # Ensure correct number of arguments
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print("Usage: ./script_name.py <mysql username> "
-              "<mysql password> <database name>")
+              "<mysql password> <database name> <state name>")
         sys.exit(1)
 
     # Get MySQL credentials and database from command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
+    state_name = sys.argv[4]
 
-    # List all State objects containing the letter 'a'
-    list_states_with_a(username, password, database)
+    # Print the State object by name
+    print_state_by_name(username, password, database, state_name)
