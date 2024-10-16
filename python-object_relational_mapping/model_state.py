@@ -34,5 +34,6 @@ def main():
     # Create all tables in the database (if they don't exist)
     # Base.metadata.create_all(engine)
 
+
 if __name__ == '__main__':
     main()
