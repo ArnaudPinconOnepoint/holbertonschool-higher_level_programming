@@ -1,37 +1,32 @@
 #!/usr/bin/python3
-"""Module to fetch cities by state."""
+"""
+This script lists all City objects from the database hbtn_0e_14_usa.
+"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_city import City
-from model_state import State, Base
+from model_state import Base, State
 
 def main():
-    """Main function to fetch and print cities."""
+    """Main function to fetch and display cities."""
+    # Retrieve arguments
     if len(sys.argv) != 4:
-        print("Usage: ./14-model_city_fetch_by_state.py "
-              "<mysql username> <mysql password> <database name>")
         return
 
-    user = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    host = 'localhost'
-    port = 3306
+    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
 
-    # Create the MySQL engine using SQLAlchemy
-    engine = create_engine(
-        f'mysql+mysqldb://{user}:{password}@{host}:{port}/'
-        f'{database}', echo=False)
+    # Create an engine and session
+    engine = create_engine(f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}', echo=True)
+    Base.metadata.create_all(engine)
 
-    # Create a session
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query to get all cities and their associated states
+    # Query to get cities with their corresponding states
     cities = session.query(City).join(State).order_by(City.id).all()
 
-    # Print the results in the specified format
+    # Display results
     for city in cities:
         print(f"{city.state.name}: ({city.id}) {city.name}")
 
