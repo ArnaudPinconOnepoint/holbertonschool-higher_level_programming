@@ -7,7 +7,8 @@ Usage: ./14-model_city_fetch_by_state.py <mysql username>
 <mysql password> <database name>
 
 This script connects to a MySQL database using SQLAlchemy
-and displays all City objects in the format: <state name>: (<city id>) <city name>.
+and displays all City objects in the format: <state name>:
+(<city id>) <city name>.
 """
 import sys
 from sqlalchemy import create_engine
@@ -37,7 +38,7 @@ def fetch_cities_by_state(username, password, database):
 
     # Query all cities and their corresponding states
     cities = session.query(City).order_by(City.id).all()
-    
+
     for city in cities:
         state = session.query(State).filter(State.id == city.state_id).first()
         if state:
